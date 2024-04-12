@@ -18,6 +18,10 @@ export const selectMode = (chapter: Chapter, variant: Variant, library: string) 
     return;
   }
 
+  if (chapter === Chapter.GO_1 || chapter === Chapter.GO) {
+    return;
+  }
+
   if (chapter !== Chapter.FULL_JS) {
     HighlightRulesSelector(chapter, variant, library, Documentation.externalLibraries[library]);
   } else {
@@ -50,6 +54,8 @@ export const getModeString = (chapter: Chapter, variant: Variant, library: strin
     case Chapter.SCHEME_4:
     case Chapter.FULL_SCHEME:
       return 'scheme';
+    // case Chapter.GO_1:
+    //   return 'go';
     default:
       return `source${chapter}${variant}${library}`;
   }
